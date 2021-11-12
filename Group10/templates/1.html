@@ -80,11 +80,12 @@
         
         <div class="container">
 
-            <form>
+            <form method="POST">
+                {% csrf_token %}
                 <div class="mx-auto p-1 form-row">
                     <h5>Total Emissions (Gtc/Year):  </h5>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="00">
+                        <input type="text" name="Test" class="form-control" placeholder="00">
                     </div>
 
                     <div class="col">
@@ -94,7 +95,7 @@
                         <input type="text" class="form-control" placeholder="To">
                     </div>
                 </div>
-              </form>
+
 
         </div>
         
@@ -104,7 +105,7 @@
         
       <div class="container">
 
-          <form>
+
               <div class="mx-auto p-3 form-row">
                   <h5>Absorptions (Gtc/Year):  </h5>
                   <div class="col">
@@ -118,14 +119,15 @@
                       <input type="text" class="form-control" placeholder="To">
                   </div>
               </div>
-            </form>
+
       
 
       </div>
     </div>
         <div class="text-center container">
-        <button type="button" class="btn btn-success" method="POST">Make Decision</button>
+        <button type="submit" class="btn btn-success" method="POST">Make Decision</button>
       </div>
+  </form>
       
       
 
