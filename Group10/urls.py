@@ -32,6 +32,7 @@ urlpatterns = [
     path("instruction2/",views.ins2, name='instruction2'),
     path("instruction3/",views.ins3, name='instruction3'),
     path("user/",views.user, name='user'),
+    path("test/",views.test, name='test'),
 
 ]
 

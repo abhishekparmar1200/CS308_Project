@@ -11,6 +11,7 @@ import plotly.express as px
 
 import numpy as np
 from .functions import *
+from .forms import data
 
 l1=[]
 l2=[]
@@ -64,8 +65,13 @@ def index(request):
         #                     opacity=0.8, marker_color='Red')
 
         plot_div3=plot(fig,output_type='div')
-        return render (request, "1.html",context={'plot_div1': plot_div1,'plot_div2': plot_div2,'plot_div3': plot_div3, 'year1':yearList[0],'year2':yearList[-1], 'co2_con':totConcList[-1]})
-    return render(request,"1.html")
+        form=data()
+        return render (request, "1.html",context={'form':form, 'plot_div1': plot_div1,'plot_div2': plot_div2,'plot_div3': plot_div3, 'year1':yearList[0],'year2':yearList[-1], 'co2_con':totConcList[-1]})
+    else:
+        form = data()
+
+
+    return render(request,"1.html", {'form':form})
 
 
 def welcome(request):
@@ -84,6 +90,10 @@ def ins2(request):
 def ins3(request):
 
     return render (request, "instruction3.html")
+
+def test(request):
+
+    return render (request, "test.html")
 
 
 def user(request):

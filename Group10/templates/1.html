@@ -83,22 +83,18 @@
     <h4 class="p-4 text-center">Required Values of CO2 Emissions</h4>
     <div class="container d-flex justify-content-center">
         
-        <div class="container">
+        <div class="text-center container">
 
             <form method="POST">
                {% csrf_token %}
                 <div class="mx-auto p-1 form-row">
-                    <h5>Total Emissions (Gtc/Year):  </h5>
-                    <div class="col">
-                        <input type="text" id="emission1" name="Emissions" class="form-control" placeholder="00">
-                    </div>
 
                     <div class="col">
-                        <input type="text" name="Emission_From" class="form-control" placeholder="From">
+                      <h5>Total Emissions (Gtc/Year):  </h5>
+                        {{ form.Emissions }}
                     </div>
-                    <div class="col">
-                        <input type="text" name="Emission_To" class="form-control" placeholder="To">
-                    </div>
+
+
                 </div>
 
 
@@ -108,21 +104,17 @@
     </div>
     <div class="mx-auto p-4 container d-flex justify-content-center">
         
-      <div class="container">
+      <div  class="text-center container">
 
 
-              <div class="mx-auto p-3 form-row">
-                  <h5>Absorptions (Gtc/Year):  </h5>
-                  <div class="col">
-                      <input type="text" id="emission2" name='Absorptions' class="form-control" placeholder="00">
-                  </div>
+              <div class="mx-auto p-3 form-row" align="center">
 
                   <div class="col">
-                      <input type="text" class="form-control" placeholder="From">
+                    <h5>Absorptions (Gtc/Year):  </h5>
+                      {{ form.Absorptions }}
                   </div>
-                  <div class="col">
-                      <input type="text" class="form-control" placeholder="To">
-                  </div>
+
+
               </div>
 
       
@@ -130,8 +122,9 @@
       </div>
     </div>
     <div class="text-center container">
-       <button id="output" onclick=changeflag() type="submit" class="btn btn-success" method="POST">Calculate</button>
-      <button id="output" onclick=changeflag() type="button" class="btn btn-success" method="POST">Show</button>
+       <button onclick=changeflag() type="submit" class="btn btn-success" method="POST">Calculate</button>
+       <button id="output" onclick=changeflag() type="button" class="btn btn-success">Show</button>
+
     </div>
 </form>
 
