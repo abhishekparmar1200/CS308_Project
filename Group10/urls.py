@@ -27,6 +27,11 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("page1/",views.index, name='index'),
+    path("instruction1/",views.ins1, name='instruction1'),
+    path("instruction2/",views.ins2, name='instruction2'),
+    path("instruction3/",views.ins3, name='instruction3'),
+    path("user/",views.user, name='user'),
+
 ]
 
 if settings.DEBUG:
