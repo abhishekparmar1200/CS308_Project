@@ -39,9 +39,9 @@ def index(request):
         cur = int((yearList[-1] - 1970)/10);
         print(years)
         plot_div1 = plot([Scatter(x=years, y=originalConc,
-                            mode='lines', name='test',
+                            mode='lines', name='Concentration Goal',
                             opacity=1, marker_color='green',fill='tonexty'),Scatter(x=yearList, y=totConcList,
-                            mode='lines', name='test',
+                            mode='lines', name='Simuated Concentration',
                             opacity=1, marker_color='Red',fill='toself')],
                    output_type='div')
 
@@ -70,6 +70,8 @@ def index(request):
 
         plot_div3=plot(fig,output_type='div')
         form=data()
+        print(originalConc)
+        print(yearList)
         
         return render (request, "1.html",context={'form':form, 'plot_div1': plot_div1,'plot_div2': plot_div2,'plot_div3': plot_div3, 'year1':yearList[0],'year2':yearList[-1], 'co2_con':round(totConcList[-1],3),'co2_ab':round(absListGraph[-1],3),'co2_em':round(emsListGraph[-1],3),
         'goal_con':round(originalConc[cur],3),'goal_up':round(originalConc[cur],3)+0.5, 'goal_down':round(originalConc[cur],3)-0.5})
@@ -78,10 +80,10 @@ def index(request):
 
         yearList, emsListGraph, yearList, absListGraph, years, originalConc, yearList, totConcList=solve(l1,l2)
         plot_div1 = plot([Scatter(x=years, y=originalConc,
-                            mode='lines', name='test',
-                            opacity=0.8, marker_color='green'),Scatter(x=yearList, y=totConcList,
-                            mode='lines', name='test',
-                            opacity=0.8, marker_color='Red')],
+                            mode='lines', name='Concentration Goal',
+                            opacity=0.8, marker_color='green',fill='tonexty'),Scatter(x=yearList, y=totConcList,
+                            mode='lines', name='Simulated Concentration',
+                            opacity=0.8, marker_color='Red',fill='toself')],
                    output_type='div')
         
         fig = px.line(x=[0.5,1.5],y=[round(originalConc[3],3),round(originalConc[3],3)],labels=dict( y="Concentration"))

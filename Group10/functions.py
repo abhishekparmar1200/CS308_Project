@@ -8,10 +8,12 @@ def solve(emsList, absList):
     #Converting the values from PPMV to GtC
     for i in range(0, len(originalConc)):
         originalConc[i] = originalConc[i] * 2.13
+    # for i in range(0,len(originalConc)):
+    #     originalConc.insert(i+1, (originalConc[i]+originalConc[i+1])/2)
     
     years = []
     #year list stores the corresponding year values
-    for year in range(1970, 2110, 10):
+    for year in range(1970, 2100, 10):
         years.append(year)
     
     totConc = originalConc[3] #to store the total concentration of CO2 in atmosphere. Initially stores the CO2 conc value for year 2000
@@ -23,14 +25,14 @@ def solve(emsList, absList):
     
     #calculating total concentration values for the emission and apsorption values over the current time period
     for ind in range(0, len(emsList)):
-        for year1 in range(year, year + 5):
+        for year1 in range(year, year + 10):
             totConc = totConc + emsList[ind] - absList[ind]
             totConcList.append(totConc)
             emsListGraph.append(emsList[ind])
             absListGraph.append(absList[ind])
             yearList.append(year1)
             
-        year = year + 5
+        year = year + 10
     return [yearList, emsListGraph, yearList, absListGraph, years, originalConc, yearList, totConcList]
     # cur = int((year - 1970)/10);
     # lowerLim = int(originalConc[cur] - 200)

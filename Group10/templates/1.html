@@ -188,22 +188,22 @@ background: linear-gradient(to right, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, F
     <div class="justify-content-center">
 
       <div class="row justify-content-center" style="padding-bottom: 4rem;">
-        <div class="card" style="width: 40rem;">
+        <div class="card" style="width: 40rem; margin-right: 10px;">
           {% autoescape off %}
           {{ plot_div1 }}
           {% endautoescape %}
           <div class="card-body">
-            <p class="card-text">The green color represents the Goal trajectory of Co2 concentraion.
+            <p class="card-text">The green color represents the Goal trajectory of Co2 concentration.
               The red curve shows the trajectory of CO2 concentratin based on user input.
               The x-axis represents the time period in years.
-               The y-axis represents concentraion of Co2 in GtC.
+               The y-axis represents concentration of CO2 in GtC.
             </p>
           </div>
         </div>
 
 
 
-        <div class="card" style="width: 40rem;">
+        <div class="card" style="width: 40rem; margin-right: 10px;">
           {% autoescape off %}
 
           {{ plot_div2 }}
@@ -219,7 +219,7 @@ background: linear-gradient(to right, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, F
           <h3>Goal upper bound(Gtc): <button class="btn btn-danger">{{ goal_up }}</button></h3>
         </div>
         <div class="text-center p-2">
-          <h3>Goal (Gtc): <button class="btn btn-danger">{{ goal_con }}</button></h3>
+          <h3>Goal (GtC): <button class="btn btn-danger">{{ goal_con }}</button></h3>
         </div>
         <div class="text-center p-2">
           <h3>Goal lower bound(Gtc): <button class="btn btn-danger">{{ goal_down }}</button></h3>
@@ -229,8 +229,7 @@ background: linear-gradient(to right, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, F
           {{ plot_div3 }}
           {% endautoescape %}
           <div class="card-body">
-            <p class="card-text">The red line represents the Goal concentration of Co2 for the current year. The orange
-              box represents the current Co2 concentration based on user input. The task shows a tank with an orange liquid which represents the CO2 concentration in atmosphere
+            <p class="card-text">The red line represents the Goal concentration of CO2 for the current year. The task shows a tank with an orange liquid which represents the CO2 concentration in atmosphere
             </p>
           </div>
         </div>
