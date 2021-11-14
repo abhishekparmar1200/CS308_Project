@@ -66,6 +66,7 @@ def index(request):
 
         plot_div3=plot(fig,output_type='div')
         form=data()
+        print(yearList)
         return render (request, "1.html",context={'form':form, 'plot_div1': plot_div1,'plot_div2': plot_div2,'plot_div3': plot_div3, 'year1':yearList[0],'year2':yearList[-1], 'co2_con':totConcList[-1]})
     else:
         form = data()

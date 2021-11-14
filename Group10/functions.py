@@ -11,7 +11,7 @@ def solve(emsList, absList):
     
     years = []
     
-    for year in range(1970, 2110, 10):
+    for year in range(1971, 2110, 10):
         years.append(year)
     
     totConc = originalConc[3]
@@ -19,7 +19,7 @@ def solve(emsList, absList):
     yearList = []
     emsListGraph = []
     absListGraph = []
-    year = 2000
+    year = 2001
     
     for ind in range(0, len(emsList)):
         for year1 in range(year, year + 5):
