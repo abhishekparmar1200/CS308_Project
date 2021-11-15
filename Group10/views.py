@@ -13,12 +13,14 @@ import plotly.express as px
 import numpy as np
 from .functions import *
 from .forms import data
+import pandas as pd
+from csv import DictWriter
 
 l1=[]
 l2=[]
 
 def index(request):
-    if(len(l1)>=20):
+    if(len(l1)>=10):
         l1.clear()
         l2.clear()
     if request.method=="POST":
@@ -72,6 +74,7 @@ def index(request):
         form=data()
         print(originalConc)
         print(yearList)
+        print(years)
         
         return render (request, "1.html",context={'form':form, 'plot_div1': plot_div1,'plot_div2': plot_div2,'plot_div3': plot_div3, 'year1':yearList[0],'year2':yearList[-1], 'co2_con':round(totConcList[-1],3),'co2_ab':round(absListGraph[-1],3),'co2_em':round(emsListGraph[-1],3),
         'goal_con':round(originalConc[cur],3),'goal_up':round(originalConc[cur],3)+0.5, 'goal_down':round(originalConc[cur],3)-0.5})
@@ -128,12 +131,30 @@ def user(request):
 
     if request.method=='POST':
         form=request.POST
-        print(form.get('name'))
-        print(form.get('email'))
-        print(form.get('Age'))
-        print(form.get('male'))
-        print(form.get('female'))
-        print(form.get('select'))
+        
+        
+  
+        # list of column names 
+        field_names = ['name','email','Age',
+                    'male','female','major']
+
+        # Dictionary
+        dict={'name':str(form.get('name')),'email':str(form.get('email')),'Age':str(form.get('Age')), 'male':str(form.get('male')),'female':str(form.get('female')),'major':str(form.get('select'))}
+        # Open your CSV file in append mode
+        # Create a file object for this file
+        with open('/home/abhi/Work_temp/CS308/Group10/Group10/user_data/user.csv', 'a') as f_object:
+            
+        # Pass the file object and a list 
+        # of column names to DictWriter()
+        # You will get a object of DictWriter
+            dictwriter_object = DictWriter(f_object, fieldnames=field_names)
+
+            #Pass the dictionary as an argument to the Writerow()
+            dictwriter_object.writerow(dict)
+
+        #Close the file object
+            f_object.close()
+            
         return redirect("/page1")
 
     return render (request, "user.html")
